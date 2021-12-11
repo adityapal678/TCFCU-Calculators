@@ -1,0 +1,76 @@
+1 - Install nodejs
+
+- GO to node site and install node-
+
+    
+2- Install project dependencies
+
+- Open terminal and go to project directory after that install following cmd-
+    npm install
+    
+- npm run start ( to run project )
+
+3 - Change basename if required
+
+- By default app will use '/' as basename-
+ ex - http://somedomain.com/
+ 
+ if you want you app to start with some other base for ex-
+    http://somedomain.com/path1/path2
+ 
+- Open src/App.js and add basename attribute in BrowerRouter-
+
+    ex- If you want http://somedomain.com/path/
+    
+    <BrowserRouter basename="/path">
+            <Home />
+    </BrowserRouter>
+    
+4- Do necessary changes to /public/index.html page in project directory if required
+
+5- install build cmd to build project
+    npm run build
+    
+    build directory will be created.
+    
+    
+
+6- Integrate project to website
+
+- Create a template calcaulator.twig in your craft cms.
+- Copy content of index.html from build directory /build/index.html to calculator.twig
+- Create 3 pages (cd calcualtor, personal calcaulator, mortgage calculator)
+- Assign calcualtor.twig template to above three pages
+
+ - Go to build directory and copy /build/static/css/* to craftcms css folder
+ - Go to build directory and copy /build/static/js/* to craftcms js folder
+ 
+- Open calcaulator.twig and use some tool to deminify the file for better understanding
+- Now change you css and js paths that leads to newly  css and js
+ ex-
+    CSS
+    <link href="static/css/main.efa62180.chunk.css" rel="stylesheet">
+    <link href="{{siteUrl}}assets/css/main.efa62180.chunk.css" rel="stylesheet">
+    
+    JS
+    <script src="static/js/2.bada4e95.chunk.js"></script>
+    <script src="static/js/main.d937b2f6.chunk.js"></script>
+    to
+    <script src="{{siteUrl}}assets/js/2.bada4e95.chunk.js"></script>
+    <script src="{{siteUrl}}assets/js/main.d937b2f6.chunk.js"></script>
+    
+- Now you can run calculators using
+http://website.com/cd-calcualtor
+http://website.com/mortgage-calcualtor
+http://website.com/personal-calcualtor
+
+ 
+    
+
+
+
+
+    
+
+    
+
